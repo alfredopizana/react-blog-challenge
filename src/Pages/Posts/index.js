@@ -5,9 +5,11 @@ import {
   Route,
   useParams
 } from "react-router-dom";
+import { CardColumns } from "reactstrap"
 import api from "../../lib/api"
+import PostCard from '../../Components/PostCard'
 function Posts() {
-    const [ postsData, setPostData ] = useState();
+    const [ postsData, setPostData ] = useState({});
 
 
     useEffect(async () =>{
@@ -17,12 +19,12 @@ function Posts() {
     }, [])
     return (
         <>
-        <h1>Posts</h1>
-        {
-            <ul>
-
-            </ul>
-        }
+            <h1>Posts</h1>
+            <CardColumns>
+            {
+                    Object.keys(postsData).map(key =>{ return( <PostCard key={key} postId={key} postData={ { postId: key ,...postsData[key]} } />) })
+            }
+            </CardColumns>
         </>
     )
 }
