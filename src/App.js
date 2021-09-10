@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './App.scss';
 import {
-  NavbarBrand,
   Navbar,
   NavItem,
   Nav,
@@ -14,12 +13,17 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useParams,
+    useRouteMatch
 } from "react-router-dom";
-
+import PostDetail  from './Pages/PostDetail'
+import Posts  from './Pages/Posts'
+import CreatePost  from './Pages/CreatePost'
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
    const links = [
     {
       label: "Catálogo",
@@ -47,7 +51,7 @@ function App() {
                       <Link className="nav-link" to="/new-posts">New Post</Link>
                   </NavItem>
                   <NavItem>
-                    <Link className="nav-link" to="/post-detail">Post Detail</Link>
+                    <Link className="nav-link" to="/post-detail/1231234123123">Post Detail</Link>
                   </NavItem>
                   </Nav>
                 </Collapse>
@@ -67,13 +71,13 @@ function App() {
         <Container>
           <Switch>
             <Route exact path="/">
-              <h1>Home</h1>
+              <Posts />
             </Route>
-            <Route path="/new-posts">
-              <h1>New Post</h1>
+            <Route path="/new-post">
+              <CreatePost />
             </Route>
-            <Route path="/post-detail">
-              <h1>Post Detail</h1>
+            <Route path="/post-detail/:slug">
+              <PostDetail />
             </Route>
           </Switch>
         </Container>
