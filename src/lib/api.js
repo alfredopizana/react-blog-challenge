@@ -15,10 +15,11 @@ export default {
 
     },
     async getAllPosts(){
-        let data =  await fetch(`${BASE_URL}/posts/.json`)
-        return data.json()
+        let response =  await fetch(`${BASE_URL}/posts/.json`)
+        return await response.json()
     },
     async getPostById( postId ){
-
+        let response = await fetch(`${BASE_URL}/posts/${ postId }/.json`)
+        return await response.json()
     }
 }

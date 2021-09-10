@@ -1,28 +1,28 @@
 import React, { useState } from 'react'
 import './App.scss';
 import {
-  Navbar,
-  NavItem,
-  Nav,
-  Collapse,
-  NavbarToggler,
-  Container
+	Navbar,
+	NavItem,
+	Nav,
+	Collapse,
+	NavbarToggler,
+	Container
 } from 'reactstrap';
 
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-    useRouteMatch
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	useParams,
+	useRouteMatch
 } from "react-router-dom";
-import PostDetail  from './Pages/PostDetail'
-import Posts  from './Pages/Posts'
-import CreatePost  from './Pages/CreatePost'
+import PostDetail from './Pages/PostDetail'
+import Posts from './Pages/Posts'
+import CreatePost from './Pages/CreatePost'
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+	const [isOpen, setIsOpen] = useState(false);
+	const toggle = () => setIsOpen(!isOpen);
 
    const links = [
     {
@@ -68,21 +68,21 @@ function App() {
           of them to render at a time
         */}
 
-        <Container>
-          <Switch>
-            <Route exact path="/">
-              <Posts />
-            </Route>
-            <Route path="/new-post">
-              <CreatePost />
-            </Route>
-            <Route path="/post-detail/:slug">
-              <PostDetail />
-            </Route>
-          </Switch>
-        </Container>
-    </Router>
-  );
+			<Container>
+				<Switch>
+					<Route exact path="/">
+						<Posts />
+					</Route>
+					<Route path="/new-post">
+						<CreatePost />
+					</Route>
+					<Route path="/post-detail/:slug">
+						<PostDetail />
+					</Route>
+				</Switch>
+			</Container>
+		</Router>
+	);
 }
 
 export default App;
