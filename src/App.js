@@ -48,7 +48,7 @@ function App() {
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                   <NavItem>
-                      <Link className="nav-link" to="/new-posts">New Post</Link>
+                      <Link className="nav-link" to="/new-post">New Post</Link>
                   </NavItem>
                   <NavItem>
                     <Link className="nav-link" to="/post-detail/1231234123123">Post Detail</Link>
