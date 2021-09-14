@@ -20,7 +20,9 @@ import {
 import PostDetail from './Pages/PostDetail'
 import Posts from './Pages/Posts'
 import CreatePost from './Pages/CreatePost'
+import staticAuthors from './lib/staticAuthors';
 function App() {
+  const currentAuthor = staticAuthors.getRandomAuthor()
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => setIsOpen(!isOpen);
 
@@ -40,6 +42,9 @@ function App() {
   ]
   return (
     <Router>
+    { 
+      
+    }
     <div>
         <Navbar color="light" light expand="sm">
             <Container>
@@ -59,7 +64,7 @@ function App() {
             
       </Navbar>
       
-  </div>
+    </div>
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path

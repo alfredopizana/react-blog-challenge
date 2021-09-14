@@ -14,16 +14,16 @@ import api from "../../lib/api"
 function PostDetail() {
     
     let { slug } = useParams()
-    console.log(slug)
+    //console.log(slug)
 
     const [postDataById, setPostDataById] = useState({})
    // const {postId}  = useParams()
     //console.log("este es el id del producto:" + postId)
-    console.log(useParams() )
+    //console.log(useParams() )
     useEffect (async ()=>{
      const result = await api.getPostById( slug )
-     setPostDataById(result)
-     console.log("este el resultado del get by id" , result)
+     //setPostDataById(result)
+     //console.log("este el resultado del get by id" , result)
     }, [])
 
 
@@ -38,8 +38,8 @@ function PostDetail() {
             }
             </Card>
         <section id="comments">
-          <Comments />
-          <CommentsCard/>
+          {/*<Comments />
+          <CommentsCard/>*/}
         </section>
         
         </>

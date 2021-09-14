@@ -14,6 +14,8 @@ function Posts() {
 
     useEffect(async () =>{
         let postDetailData = await api.getAllPosts()
+        console.log("postDetailData")
+        console.log(postDetailData)
         setPostData( postDetailData );
         console.log(postDetailData)
     }, [])

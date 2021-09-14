@@ -9,8 +9,7 @@ export default {
             },
             body:JSON.stringify(postData)
          })
-        return await data.json()
-
+        return await data.json() 
     },
     async getAllPosts(){
         let response =  await fetch(`${BASE_URL}/posts/.json`)
@@ -28,6 +27,27 @@ export default {
             },
             body:JSON.stringify(postComment)
         })
+        return await data.json()
+    },
+    async updateReactionByPostId(postId,authorId)
+    {
+        let response = await fetch(`${BASE_URL}/posts/${ postId }/.json`)
+        let post = await response.json()
+        let { reactions = [] } = post
+        const reactionPosition = reactions.indexOf(authorId)
+        if(reactionPosition>=0){
+            reactions.splice(reactionPosition, 1);
+        }
+        else{
+            reactions.push(authorId);
+        }
+        let data = await fetch(`${BASE_URL}/posts/${postId}/.json`,{ 
+            method: 'PATCH', 
+            headers:{
+                'Content-Type': 'aplication/json'
+            },
+            body:JSON.stringify({reactions})
+            })
         return await data.json()
     }
 }
