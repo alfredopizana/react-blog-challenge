@@ -21,5 +21,28 @@ export default {
     async getPostById( postId ){
         let response = await fetch(`${BASE_URL}/posts/${ postId }/.json`)
         return await response.json()
+    },
+    async updateReactionByPostId(postId,authorId)
+    {
+        let response = await fetch(`${BASE_URL}/posts/${ postId }/.json`)
+        let post = await response.json()
+        if(post.reactions){
+            let { reactions } = post
+            const reactionPosition = reactions.indexOf(authorId)
+            if(reactionPosition>=0){
+                reactions.splice(reactionPosition, 1);
+            }
+            else{
+                reactions.push(authorId);
+            }
+        }
+        let data = await fetch(`${BASE_URL}/posts/${postId}/.json`,{ 
+            method: 'PATCH', 
+            headers:{
+                'Content-Type': 'aplication/json'
+            },
+            body:JSON.stringify({reactions})
+         })
+        return await data.json()
     }
 }
