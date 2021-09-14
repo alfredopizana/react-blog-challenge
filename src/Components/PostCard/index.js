@@ -6,10 +6,18 @@ import {
 import {
   Link
 } from "react-router-dom";
+<<<<<<< HEAD
 
 const PostCard = (props) =>{
     //const { postId } = props
     const { postId , title = "", description = "", image = "", summary = "", comments=[],reactions = []  } = props.postData
+=======
+import api from "../../lib/api";
+import staticAuthors from '../../lib/staticAuthors';
+const PostCard = (props) =>{
+    //const { postId } = props
+    const { postId , title, description, image = "", reactions = [] } = props
+>>>>>>> main
     console.log(postId)
     const toggleReaction = (event) => {
       

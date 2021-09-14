@@ -28,7 +28,11 @@ function CreatePost() {
     if (isTitleValid) {
 
       const result = await api.createPost({...postData,author})
+<<<<<<< HEAD
       //console.log(result)
+=======
+      console.log(result)
+>>>>>>> main
     } else {
       setGlogalMessage("Verifica que los campos sean correctos")
       setTimeout(function () {
